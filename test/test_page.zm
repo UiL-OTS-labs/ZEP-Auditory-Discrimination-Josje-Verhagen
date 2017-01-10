@@ -92,7 +92,7 @@ Page test_page
             {
                 init()
                 {
-                    text = "Same";
+                    text = "Eerste";
                     font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
                     font_size = TEST_PAGE_BUTTON_FONT_SIZE;
                     fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
@@ -112,7 +112,7 @@ Page test_page
             {
                 init()
                 {
-                    text = "Different";
+                    text = "Tweede";
                     font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
                     font_size = TEST_PAGE_BUTTON_FONT_SIZE;
                     fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
