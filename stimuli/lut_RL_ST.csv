@@ -11,7 +11,7 @@ id;type;sndfn1_1;sndfn2_1;sndfn3_1;sndfn1_2;sndfn2_2;sndfn3_2
 9;focus_newX;rak.wav;X_rajee.wav;lut.wav;sot.wav;X_rajee.wav;lut.wav
 10;focus_newX;rak.wav;X_loga.wav;lut.wav;sot.wav;X_loga.wav;lut.wav
 11;focus_newX;rak.wav;X_dieta.wav;lut.wav;sot.wav;X_dieta.wav;lut.wav
-12;focus_newX;rak.wav;X_nilbo.wav;lut.wav;sot.wav;X_.wav;nilbo lut.wav
+12;focus_newX;rak.wav;X_nilbo.wav;lut.wav;sot.wav;X_nilbo.wav;lut.wav
 13;nonfocus_newX;sot.wav;X_rajee.wav;toef.wav;rak.wav;X_rajee.wav;toef.wav
 14;nonfocus_newX;sot.wav;X_loga.wav;toef.wav;rak.wav;X_loga.wav;toef.wav
 15;nonfocus_newX;sot.wav;X_dieta.wav;toef.wav;rak.wav;X_dieta.wav;toef.wav
