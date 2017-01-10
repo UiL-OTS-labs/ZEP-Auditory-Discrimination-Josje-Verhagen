@@ -43,7 +43,7 @@ Block task
         control.button_box.open("/dev/ttyACM0");
 
         // If necessary set parallel port line D0 to power button box device.
-//        
+//
     }
 
 
@@ -76,77 +76,14 @@ Block task
                 "\n"
                 "First we will do a short practice.\n"
                 "\n"
-//                "<i>Hit Enter when ready to start.</i>", 
-                "<i>Hit any button on the button-box when ready to start.</i>", 
+//                "<i>Hit Enter when ready to start.</i>",
+                "<i>Hit any button on the button-box when ready to start.</i>",
                 true);
 
             pause_page.action(this);
             control.button_box.enable_all_buttons(CONTINUE);
         }
     }
-
-
-    Block practice
-    {
-        TestItem        item;   // current item
-
-
-        on_event:entry()
-        {
-            num_cycles = prac_items.size;
-
-            // Prepare test page: progress bar, feedback and prompt enabled.
-            test_page.setup(num_cycles, true, true);
-        }
-
-
-        on_event:exit()
-        {
-            test_page.cleanup();
-        }
-
-
-        Trial trial
-        {
-            on_event:entry()
-            {
-                item = prac_items[practice.cycle];
-
-                test_page.action(this, item, reference_time, practice.cycle);
-            }
-        }
-    }
-
-
-    Part
-    {
-        on_event:entry()
-        {
-            blank_page.action_auto(this, 500ms);
-        }
-    }
-
-
-    Part pause
-    {
-        on_event:entry()
-        {
-            pause_page.set_text(
-                "End of the practice part.\n"
-                "\n"
-                "If you have any questions at this moment please ask the "
-                "experimenter now.\n"
-                "\n"
-//                "<i>Hit Enter when ready to proceed.</i>", 
-                "<i>Hit any button on the button-box when ready to "
-                "proceed.</i>", 
-                true);
-
-            pause_page.action(this);
-            control.button_box.enable_all_buttons(CONTINUE);
-        }
-    }
-
 
     Block test
     {
@@ -161,7 +98,7 @@ Block task
             num_cycles = test_items.size;
 //            num_cycles = 3;
 
-            // Prepare test page: progress bar enabled, feedback and prompt 
+            // Prepare test page: progress bar enabled, feedback and prompt
             // disabled.
             test_page.setup(num_cycles, false, false);
         }
