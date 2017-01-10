@@ -77,6 +77,10 @@ Block task
 
         on_event:entry()
         {
+
+            // Load the stimuli
+            if (load_stimuli(test_items, string(selected_group)+".csv") != OK) terminate;
+
             // Randomize test items table.
             if (shuffle_test_items() != OK) terminate;
 
@@ -114,11 +118,15 @@ Block task
                 TestOutput output;
                 output.trialnum = test.cycle + 1;
                 output.id = item.id;
-                output.sndfn1 = item.sndfn1;
-                output.sndfn2 = item.sndfn2;
+                output.type = item.type;
+                output.sndfn1_1 = item.sndfn1_1;
+                output.sndfn2_1 = item.sndfn2_1;
+                output.sndfn3_1 = item.sndfn3_1;
+                output.sndfn1_2 = item.sndfn1_2;
+                output.sndfn2_2 = item.sndfn2_2;
+                output.sndfn3_2 = item.sndfn3_2;
                 output.value = test_page.response.value;
                 output.rt = test_page.response.rt;
-                output.correct = test_page.response.correct;
                 test_output_append(output);
             }
         }

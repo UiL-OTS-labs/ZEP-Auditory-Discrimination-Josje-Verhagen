@@ -17,15 +17,20 @@ HISTORY:
 // Test output table record.
 record TestOutput
 {
-    int         trialnum;       // trial number
+    int trialnum; // trial number
 
-    int         id;             // item id
-    string      sndfn1;         // stimulus sound filename first interval
-    string      sndfn2;         // stimulus sound filename second interval
+    int id; // item id
+    itemType type;
+    string sndfn1_1;
+    string sndfn2_1;
+    string sndfn3_1;
 
-    int         value;          // response value: 0=diff, 1=same, -1=timeout
-    int         rt;             // response time [ms]
-    int         correct;        // correct response: 0=no, 1=yes, -1=n.a.
+    string sndfn1_2;
+    string sndfn2_2;
+    string sndfn3_2;
+
+    int value; // response value    : 0 =diff, 1 =same, -1 =timeout
+    int rt; // response time [ms]
 }
 
 

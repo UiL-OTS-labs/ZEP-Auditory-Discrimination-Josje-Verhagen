@@ -153,6 +153,7 @@ Page test_page
         {
             SoundFile clip1 {}
             SoundFile clip2 {}
+            SoundFile clip3 {}
         }
 
 
@@ -165,8 +166,9 @@ Page test_page
             abort();
 
             playback.device = sound_output_device;
-            seq.clip1.file = stimuli_dir() + "sounds/" + item.sndfn1;
-            seq.clip2.file = stimuli_dir() + "sounds/" + item.sndfn2;
+            seq.clip1.file = stimuli_dir() + "sounds/" + item.sndfn1_1;
+            seq.clip2.file = stimuli_dir() + "sounds/" + item.sndfn2_1;
+            seq.clip3.file = stimuli_dir() + "sounds/" + item.sndfn3_1;
             seq.clip1.trailer_duration = INTERSTIMULUS_INTERVAL;
 
             start(t);
@@ -319,8 +321,12 @@ Page test_page
         // Update status line on control window. Cleared in done() above.
         control.set_status(
             string(item.id) + "  " +
-            string(item.sndfn1) + "  " +
-            string(item.sndfn2));
+            string(item.sndfn1_1) + "  " +
+            string(item.sndfn2_1) + "  " +
+            string(item.sndfn3_1) + "  " +
+            string(item.sndfn1_2) + "  " +
+            string(item.sndfn2_2) + "  " +
+            string(item.sndfn3_2));
 
 
         // Remember who to signal when the trial is over.
