@@ -17,7 +17,97 @@ HISTORY:
 // Shuffles test_items table (no restrictions on item order).
 int shuffle_test_items()
 {
-    test_items.shuffle(0, -1);
+    if(test_items.size == 0)
+    {
+        println("test_items are empty at this point!");
+        return ERROR;
+    }
 
+    // 'pseudorandom: niet meer dan 2 van hetzelfde trial-type achter elkaar'
+    int nitems = test_items.size;
+
+   // Depending on criteria and table contents it may happen that it takes
+   // several attempts to make the shuffling succeed. We'll try it 100 times
+   // before giving up.
+   int nattempts;
+   bool again = true;
+   while (again && ++nattempts < 100)
+   {
+       // First shuffle the entire item table.
+       again = false;
+       test_items.shuffle(0, -1);
+
+       // Walk over the table and check for items conflicting with the
+       // criterion. If an item conflicts, then swap it randomly with one
+       // of the items not yet looked at.
+       int n = 2;
+       while (n < nitems)
+       {
+           int nitemswaps;
+           while (
+               test_items[n].type == test_items[n-1].type &&
+               test_items[n].type == test_items[n-2].type)
+           {
+               if (n+1 == nitems || ++nitemswaps == 10)
+               {
+                   again = true;
+                   break;
+               }
+               test_items.swap(n, random(n, nitems - n));
+           }
+           if (again) break;
+           n++;
+       }
+   }
+
+   if (again)
+       println("Unable to shuffle test_items according to criteria. "
+           "Check table and/or criteria.");
+
+   dump_test_items();
+
+   return again ? ERROR : OK;
+
+}
+
+// swaps the order of the items within the trials
+int swap_item_order()
+{
+    int index;
+    while( index < test_items.size )
+    {
+
+        string filename1 = test_items[index].sndfn1_1;
+        string filename2 = test_items[index].sndfn2_1;
+        string filename3 = test_items[index].sndfn3_1;
+
+        test_items[index].sndfn1_1 = test_items[index].sndfn1_2;
+        test_items[index].sndfn2_1 = test_items[index].sndfn2_2;
+        test_items[index].sndfn2_1 = test_items[index].sndfn3_2;
+
+        test_items[index].sndfn1_2 = filename1;
+        test_items[index].sndfn2_2 = filename2;
+        test_items[index].sndfn2_2 = filename3;
+
+        if( test_items[index].expected_answer == 1 )
+            test_items[index].expected_answer = 2;
+        else
+            test_items[index].expected_answer = 1;
+
+        index = index + 1;
+    }
     return OK;
+}
+
+void dump_test_items()
+{
+    int index = 0;
+
+    while(index<test_items.size)
+    {
+        TestItem item = test_items[index];
+        println(string(item.id) + "\t" + string(item.type) + "\t" + item.sndfn1_1 + "\t" + item.sndfn1_2 + "\t" + item.expected_answer);
+
+        index = index + 1;
+    }
 }
