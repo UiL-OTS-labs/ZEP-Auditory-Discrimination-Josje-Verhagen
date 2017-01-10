@@ -53,31 +53,16 @@ Block task
         {
 //            pause_page.set_text_size(1000, 600);
             pause_page.set_text(
-                "<b>Dear participant,</b>\n"
-                "\n"
-                "Thank you for participating in this experiment.\n"
-                "\n"
-                "You are now going to hear word fragments over the headphones. "
-                "The word fragments come in pairs. Your task is to indicate "
-                "for each pair as quickly as possible whether you think the "
-                "two fragments are <i>the same</i> or <i>different</i>.\n"
-                "\n"
-
-                "To respond, hit the left button on the button-box for "
-                "<i>Same</i> and the right button for <i>Different</i>.\n"
-
-//                "To respond, hit the left shift key for <i>Same</i> and the "
-//                "right shift key for <i>Different</i>.\n"
-
-//                "To respond, hit the left button on the button-box for "
-//                "<i>Same</i> and the right button for <i>Different</i>. "
-//                "Alternatively you can use the left or right shift keys.\n"
-
-                "\n"
-                "First we will do a short practice.\n"
-                "\n"
-//                "<i>Hit Enter when ready to start.</i>",
-                "<i>Hit any button on the button-box when ready to start.</i>",
+"Je hoort zometeen steeds twee zinnetjes uit de gekke taal die je net hebt gehoord. Jij mag steeds"
+"beslissen welk zinnetje beter past bij de taal die je hebt gehoord. Als je het eerste zinnetje beter bij de"
+"taal vindt passen, druk je op deze knop [wijs knop aan]. Als je het tweede zinnetje beter bij de taal vindt"
+"passen, druk je op die knop [wijs knop aan].\n\n"
+"Ja, snap je het?\n\n"
+"\tDus: op welke knop moet je drukken als je het eerste zinnetje beter vindt passen?\n\n"
+"\t En op welke knop moet je drukken als je het tweede zinnetje beter vindt passen?"
+"Jij snapt het!\n\n"
+"Ben je er klaar voor? Daar komt ‘ie:"
+,
                 true);
 
             pause_page.action(this);
