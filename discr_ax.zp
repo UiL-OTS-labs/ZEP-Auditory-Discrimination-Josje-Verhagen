@@ -7,7 +7,7 @@ DESCRIPTION:
 
 Implementation of task: Same-Different Auditory Discrimination (AX)
 
-For more information on the discr_ax task see readme.txt in the 
+For more information on the discr_ax task see readme.txt in the
 test folder.
 
 
@@ -42,8 +42,32 @@ Experiment experiment
     on_event:entry()
     {
         show_test_windows();
+
+        // Enable the button_box
+		if(open_button_box() != OK)
+		{
+			println("Could not open button box!");
+			terminate;
+		}
     }
 
+    int open_button_box()
+	{
+		int index = 0;
+		while(index < BEEXY_BOX_PORT_ADDRESS_CANDIDATES.size)
+		{
+			string address = BEEXY_BOX_PORT_ADDRESS_CANDIDATES[index];
+			control.button_box.open(address);
+			if(control.button_box.is_open)
+			{
+				println("Managed to open button box on " + address);
+				return OK;
+			}
+			index = index + 1;
+		}
+
+		return ERROR;
+	}
 
     on_event:message()
     {
