@@ -69,13 +69,6 @@ Block task
 
         on_event:entry()
         {
-
-            // Load the stimuli
-            if (load_stimuli(test_items, string(selected_group)+".csv") != OK) terminate;
-
-            // Randomize test items table.
-            if (shuffle_test_items() != OK) terminate;
-
             num_cycles = test_items.size;
 //            num_cycles = 3;
 
