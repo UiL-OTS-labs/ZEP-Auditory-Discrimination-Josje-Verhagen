@@ -38,14 +38,6 @@ import test_page;
 
 Block task
 {
-    on_event:entry()
-    {
-        control.button_box.open("/dev/ttyACM0");
-
-        // If necessary set parallel port line D0 to power button box device.
-//
-    }
-
 
     Part instructions
     {
