@@ -17,8 +17,11 @@ HISTORY:
 // Duration of the interval between two trials.
 const dur       INTERTRIAL_INTERVAL             = 1000ms;
 
-// Duration of the interval between the stimuli in a trial.
-const dur       INTERSTIMULUS_INTERVAL          = 250ms;
+// Duration of the interval between each sound file intertriplet.
+const dur       INTERTRIPLET_INTERVAL          = 350ms;
+
+// Duration of the interval between each triplet (intratriplet).
+const dur       INTRATRIPLET_INTERVAL           = 750ms;
 
 // Duration of the fixation symbol presentation.
 const dur       FIXATION_DURATION               = 1000ms;

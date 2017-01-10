@@ -151,9 +151,13 @@ Page test_page
         // Sound source/producer object.
         SoundSequence seq
         {
-            SoundFile clip1 {}
-            SoundFile clip2 {}
-            SoundFile clip3 {}
+            SoundFile clip1_1 {}
+            SoundFile clip2_1 {}
+            SoundFile clip3_1 {}
+
+            SoundFile clip1_2 {}
+            SoundFile clip2_2 {}
+            SoundFile clip3_2 {}
         }
 
 
@@ -166,17 +170,29 @@ Page test_page
             abort();
 
             playback.device = sound_output_device;
-            seq.clip1.file = stimuli_dir() + "sounds/" + item.sndfn1_1;
-            seq.clip2.file = stimuli_dir() + "sounds/" + item.sndfn2_1;
-            seq.clip3.file = stimuli_dir() + "sounds/" + item.sndfn3_1;
-            seq.clip1.trailer_duration = INTERSTIMULUS_INTERVAL;
+            seq.clip1_1.file = stimuli_dir() + "sounds/" + item.sndfn1_1;
+            seq.clip2_1.file = stimuli_dir() + "sounds/" + item.sndfn2_1;
+            seq.clip3_1.file = stimuli_dir() + "sounds/" + item.sndfn3_1;
+
+            seq.clip1_2.file = stimuli_dir() + "sounds/" + item.sndfn1_2;
+            seq.clip2_2.file = stimuli_dir() + "sounds/" + item.sndfn2_2;
+            seq.clip3_2.file = stimuli_dir() + "sounds/" + item.sndfn3_2;
+
+            // set time WITHIN triplets
+            seq.clip1_1.trailer_duration = INTERTRIPLET_INTERVAL;
+            seq.clip1_2.trailer_duration = INTERTRIPLET_INTERVAL;
+
+            seq.clip2_1.trailer_duration = INTERTRIPLET_INTERVAL;
+            seq.clip2_2.trailer_duration = INTERTRIPLET_INTERVAL;
+
+            // set time BETWEEN triplets
+            seq.clip3_1.trailer_duration = INTRATRIPLET_INTERVAL;
 
             start(t);
 
             return expected_finish_time;
         }
     }
-
 
     Response response
     {
