@@ -1,0 +1,18 @@
+### toef_RT_ST ###
+id;type;sndfn1_1;sndfn2_1;sndfn3_1;sndfn1_2;sndfn2_2;sndfn3_2
+1;focus_knownX;sot.wav;X_rogges.wav;toef.wav;rak.wav;X_rogges.wav;toef.wav
+2;focus_knownX;sot.wav;X_kasi.wav;toef.wav;rak.wav;X_kasi.wav;toef.wav
+3;focus_knownX;sot.wav;X_poemer.wav;toef.wav;rak.wav;X_poemer.wav;toef.wav
+4;focus_knownX;sot.wav;X_fidan.wav;toef.wav;rak.wav;X_poemer.wav;toef.wav
+5;nonfocus_knownX;rak.wav;X_rogges.wav;lut.wav;sot.wav;X_rogges.wav;lut.wav
+6;nonfocus_knownX;rak.wav;X_kasi.wav;lut.wav;sot.wav;X_kasi.wav;lut.wav
+7;nonfocus_knownX;rak.wav;X_poemer.wav;lut.wav;sot.wav;X_poemer.wav;lut.wav
+8;nonfocus_knownX;rak.wav;X_fidan.wav;lut.wav;sot.wav;X_fidan.wav;lut.wav
+9;focus_newX;sot.wav;X_rajee.wav;toef.wav;rak.wav;X_rajee.wav;toef.wav
+10;focus_newX;sot.wav;X_loga.wav;toef.wav;rak.wav;X_loga.wav;toef.wav
+11;focus_newX;sot.wav;X_dieta.wav;toef.wav;rak.wav;X_dieta.wav;toef.wav
+12;focus_newX;sot.wav;X_nilbo.wav;toef.wav;rak.wav;X_nilbo.wav;toef.wav
+13;nonfocus_newX;rak.wav;X_rajee.wav;lut.wav;sot.wav;X_rajee.wav;lut.wav
+14;nonfocus_newX;rak.wav;X_loga.wav;lut.wav;sot.wav;X_loga.wav;lut.wav
+15;nonfocus_newX;rak.wav;X_dieta.wav;lut.wav;sot.wav;X_dieta.wav;lut.wav
+16;nonfocus_newX;rak.wav;X_nilbo.wav;lut.wav;sot.wav;X_nilbo.wav;lut.wav
