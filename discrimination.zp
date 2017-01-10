@@ -49,6 +49,13 @@ Experiment experiment
 			println("Could not open button box!");
 			terminate;
 		}
+
+        if(check_participant_fields() != OK)
+		{
+			println("Missing counterbalance order participant setting!");
+			terminate;
+		}
+
     }
 
     int open_button_box()
