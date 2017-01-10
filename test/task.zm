@@ -114,8 +114,6 @@ Block task
                 TestOutput output;
                 output.trialnum = test.cycle + 1;
                 output.id = item.id;
-                output.type1 = item.type1;
-                output.type2 = item.type2;
                 output.sndfn1 = item.sndfn1;
                 output.sndfn2 = item.sndfn2;
                 output.value = test_page.response.value;

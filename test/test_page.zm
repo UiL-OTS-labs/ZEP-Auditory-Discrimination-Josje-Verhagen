@@ -196,16 +196,12 @@ Page test_page
         {
             HitType validity = hit(t);
 
-            // Accept the first hit in the response interval and end the 
+            // Accept the first hit in the response interval and end the
             // response interval.
             if (validity == HIT_VALID)
             {
                 value = val;
                 rt = int(reaction_time(0));
-                if (item.type1 == item.type2)
-                    correct = val == 0; // correct if response is same
-                else
-                    correct = val != 0; // correct if response is diff
 
                 ignore_remaining_hits();
 
@@ -223,8 +219,8 @@ Page test_page
             real correctness = 0;
             if (num_valid_hits > 0) correctness = correct ? 1 : -1;
 
-            if (!test_page_overlay.start_feedback(this, correctness, 
-                    FEEDBACK_DURATION)) 
+            if (!test_page_overlay.start_feedback(this, correctness,
+                    FEEDBACK_DURATION))
                 done(CONTINUE);
         }
 
@@ -260,8 +256,8 @@ Page test_page
         test_page_overlay.setup(this);
 
         // Show or hide prompt.
-        test_page_overlay.show_prompt(pr ? 
-            "did you hear <i>same</i> or <i>different</i> sounds" : "", 
+        test_page_overlay.show_prompt(pr ?
+            "did you hear <i>same</i> or <i>different</i> sounds" : "",
             true);
 
         // Enable or disable the progress bar.
@@ -322,10 +318,8 @@ Page test_page
 
         // Update status line on control window. Cleared in done() above.
         control.set_status(
-            string(item.id) + "  " + 
-            string(item.type1) + "  " + 
-            string(item.type2) + "  " + 
-            string(item.sndfn1) + "  " + 
+            string(item.id) + "  " +
+            string(item.sndfn1) + "  " +
             string(item.sndfn2));
 
 
