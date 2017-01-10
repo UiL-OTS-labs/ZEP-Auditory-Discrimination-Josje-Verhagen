@@ -33,6 +33,8 @@ record TestItem
     string sndfn1_2;
     string sndfn2_2;
     string sndfn3_2;
+
+    int expected_answer;
 }
 
 
