@@ -38,13 +38,20 @@ const bool      GROUP_RECORD_UPDATEABLE         = false;
 
 // List of addresses to look for the beexy box.
 string[..] BEEXY_BOX_PORT_ADDRESS_CANDIDATES = {
-	"/dev/ttyACM0",
+    "/dev/ttyACM0",
 	"/dev/ttyACM1",
 	"COM",
 	"COM1",
 	"COM2",
 	"COM3",
 	"COM4",
+    "COM5",
+    "COM6",
+    "COM7",
+    "COM8",
+    "COM9",
+    "COM10",
+    "COM11",
 };
 
 // Controls whether the assigned group is shown in the control window.
