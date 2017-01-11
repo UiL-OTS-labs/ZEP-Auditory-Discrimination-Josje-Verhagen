@@ -1,20 +1,17 @@
 /******************************************************************************\
 FILE:           task.zm
 AUTHOR:         Theo Veenker <theo.veenker@beexy.nl>
-ADAPTED BY:     -
+ADAPTED BY:     Chris van Run <C.P.A.vanrun@uu.nl>
 
 DESCRIPTION:
 
-Implementation of task: Same-Different Auditory Discrimination (AX)
+Implementation of task: Auditory Discrimination (AX)
 See readme.txt for more information.
 
 
 Global structure of this experiment phase:
 
   - instructions
-
-  - practice part
-      trial
 
   - pause
 
@@ -24,6 +21,7 @@ Global structure of this experiment phase:
 
 HISTORY:
 2012-01-30 TV   Created.
+2017-01-11 CvR   Adjusted.
 
 \******************************************************************************/
 
@@ -115,7 +113,7 @@ Block task
                 output.answer          = test_page.response.answer;
                 output.correct         = test_page.response.correct;
                 output.rt              = test_page.response.rt;
-                
+
                 test_output_append(output);
             }
         }
