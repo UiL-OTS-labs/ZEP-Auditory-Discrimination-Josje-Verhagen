@@ -69,6 +69,7 @@ Block task
 
         on_event:entry()
         {
+
             num_cycles = test_items.size;
 //            num_cycles = 3;
 
@@ -101,17 +102,20 @@ Block task
             {
                 // Add new row to test output table.
                 TestOutput output;
-                output.trialnum = test.cycle + 1;
-                output.id = item.id;
-                output.type = item.type;
-                output.sndfn1_1 = item.sndfn1_1;
-                output.sndfn2_1 = item.sndfn2_1;
-                output.sndfn3_1 = item.sndfn3_1;
-                output.sndfn1_2 = item.sndfn1_2;
-                output.sndfn2_2 = item.sndfn2_2;
-                output.sndfn3_2 = item.sndfn3_2;
-                output.value = test_page.response.value;
-                output.rt = test_page.response.rt;
+                output.trialnum        = test.cycle + 1;
+                output.id              = item.id;
+                output.type            = item.type;
+                output.sndfn1_1        = item.sndfn1_1;
+                output.sndfn2_1        = item.sndfn2_1;
+                output.sndfn3_1        = item.sndfn3_1;
+                output.sndfn1_2        = item.sndfn1_2;
+                output.sndfn2_2        = item.sndfn2_2;
+                output.sndfn3_2        = item.sndfn3_2;
+                output.expected_answer = item.expected_answer;
+                output.answer          = test_page.response.answer;
+                output.correct         = test_page.response.correct;
+                output.rt              = test_page.response.rt;
+                
                 test_output_append(output);
             }
         }

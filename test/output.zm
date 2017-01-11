@@ -29,7 +29,11 @@ record TestOutput
     string sndfn2_2;
     string sndfn3_2;
 
-    int value; // response value    : 0 =diff, 1 =same, -1 =timeout
+    int expected_answer;
+
+    int answer; // response value    : 0 =diff, 1 =same, -1 =timeout
+    int correct;
+
     int rt; // response time [ms]
 }
 

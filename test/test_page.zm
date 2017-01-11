@@ -197,16 +197,16 @@ Page test_page
     Response response
     {
         // Response data.
-        int     value;          // response value: 0=same, 1=diff, -1=timeout
+        int     answer;          // response value: 0=same, 1=diff, -1=timeout
         int     rt;             // response time [ms]
         int     correct;        // correct response: 0=no, 1=yes, -1=n.a.
 
 
         void clear()
         {
-            value = -1;
+            answer = -9999;
             rt = -9999;
-            correct = -1;
+            correct = -9999;
         }
 
 
@@ -218,7 +218,13 @@ Page test_page
             // response interval.
             if (validity == HIT_VALID)
             {
-                value = val;
+                answer = val;
+
+                if(answer == item.expected_answer )
+                    correct = 1;
+                else
+                    correct = 0;
+
                 rt = int(reaction_time(0));
 
                 ignore_remaining_hits();
