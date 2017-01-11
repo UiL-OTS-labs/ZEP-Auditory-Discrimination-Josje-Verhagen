@@ -64,8 +64,6 @@ int shuffle_test_items()
        println("Unable to shuffle test_items according to criteria. "
            "Check table and/or criteria.");
 
-   dump_test_items();
-
    return again ? ERROR : OK;
 
 }
