@@ -32,9 +32,9 @@ Page test_page
     {
         // Handle left-shift (same) and right-shift (diff).
         if (input_key == KEY_Shift_L)
-            response.process_hit(0, event_time);
-        else if (input_key == KEY_Shift_R)
             response.process_hit(1, event_time);
+        else if (input_key == KEY_Shift_R)
+            response.process_hit(2, event_time);
         else
             handle_special_key(this, input_key, input_modifiers);
     }
@@ -294,8 +294,8 @@ Page test_page
         // Enable button-box buttons 0 and 1 for resp. same(0) and diff(1).
         control.target = this;
         control.button_box.disable_buttons();
-        control.button_box.enable_button(0, 0); // button 0 means same(0)
-        control.button_box.enable_button(2, 1); // button 1 means diff(1)
+        control.button_box.enable_button(0, 1); // button 0 means same(0)
+        control.button_box.enable_button(2, 2); // button 1 means diff(1)
     }
 
 
