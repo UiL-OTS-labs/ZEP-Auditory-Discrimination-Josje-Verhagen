@@ -61,7 +61,7 @@ Experiment experiment
         if (test::load_stimuli(test::test_items, string(selected_group)+".csv") != OK) terminate;
 
         // 'counterbalanced lijsten voor wat betreft volgorde van strings binnen trial'
-        if(expdb.participant.get_enum_field("Counterbalance_order_yes_no") == "yes" )
+        if(expdb.participant.get_enum_field("Presentation_order_one_two") == "two" )
         {
             test::swap_item_order();
         }
