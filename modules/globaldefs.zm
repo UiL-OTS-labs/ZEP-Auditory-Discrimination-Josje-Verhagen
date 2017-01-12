@@ -15,6 +15,9 @@ HISTORY:
 
 \******************************************************************************/
 
+// Experiment terminates if button box fails to open
+
+const bool    TERMINATE_AT_BUTTON_BOX_FAILURE = true;
 
 // Experiment version. In piloting stage and later increment this on each
 // relevant change.
