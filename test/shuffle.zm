@@ -82,7 +82,7 @@ int swap_item_order()
 
         test_items[index].sndfn1_1 = test_items[index].sndfn1_2;
         test_items[index].sndfn2_1 = test_items[index].sndfn2_2;
-        test_items[index].sndfn2_1 = test_items[index].sndfn3_2;
+        test_items[index].sndfn3_1 = test_items[index].sndfn3_2;
 
         test_items[index].sndfn1_2 = filename1;
         test_items[index].sndfn2_2 = filename2;
