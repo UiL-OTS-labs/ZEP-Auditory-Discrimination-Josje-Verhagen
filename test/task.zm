@@ -73,7 +73,7 @@ Block task
 
             // Prepare test page: progress bar enabled, feedback and prompt
             // disabled.
-            test_page.setup(num_cycles, false, false);
+            test_page.setup(-1, false, false);
         }
 
 
