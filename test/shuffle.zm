@@ -86,7 +86,7 @@ int swap_item_order()
 
         test_items[index].sndfn1_2 = filename1;
         test_items[index].sndfn2_2 = filename2;
-        test_items[index].sndfn2_2 = filename3;
+        test_items[index].sndfn3_2 = filename3;
 
         if( test_items[index].expected_answer == 1 )
             test_items[index].expected_answer = 2;
