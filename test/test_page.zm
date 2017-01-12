@@ -79,57 +79,6 @@ Page test_page
             }
         }
 
-
-        HorizontalLayout buttons
-        {
-            init()
-            {
-                spacing = 50;
-                options = LAYOUT_EQUAL_WIDTH;
-            }
-
-
-            ButtonGadget button1
-            {
-                init()
-                {
-                    text = "Eerste";
-                    font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
-                    font_size = TEST_PAGE_BUTTON_FONT_SIZE;
-                    fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
-                    text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
-                    size = 150, 75;
-                }
-
-
-                on_event:activate()
-                {
-                    response.process_hit(0, event_time);
-                }
-            }
-
-
-            ButtonGadget button2
-            {
-                init()
-                {
-                    text = "Tweede";
-                    font_family = TEST_PAGE_BUTTON_FONT_FAMILY;
-                    font_size = TEST_PAGE_BUTTON_FONT_SIZE;
-                    fill_pattern_color = TEST_PAGE_BUTTON_COLOR;
-                    text_color = TEST_PAGE_BUTTON_TEXT_COLOR;
-                    size = 150, 75;
-                }
-
-
-                on_event:activate()
-                {
-                    response.process_hit(1, event_time);
-                }
-            }
-        }
-
-
         time start_fixation(time t)
         {
             // Start fixation cross.
