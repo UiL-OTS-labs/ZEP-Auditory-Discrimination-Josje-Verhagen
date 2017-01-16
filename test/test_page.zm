@@ -57,86 +57,199 @@ Page test_page
         }
 
 
-        CanvasGadget canvas
+        CanvasGadget button_box_representation
         {
             init()
             {
-//                fill_pattern_color = TEST_PAGE_STIMULUS_COLOR;
-                size = 450, 100;
+                size = 450, 450;
                 offset_x = width / 2;
                 offset_y = height / 2;
+                //is_visible = true;
             }
 
-
-            CrossShape fixation
+            ImageShape unpressed
             {
                 init()
                 {
-                    radius = 15;
-                    line_width = 5;
-                    line_pattern_color = color:crimson;
+                    // Always visible, the rest of the figures are on top.
+                    is_visible = true;
+
+                    image = stimuli_dir() + "images/three_button_beexy_box_unpressed.svg";
+
+                    // Center image
+                    offset_x = -(image_width / 2);
+                    offset_y = -(image_height / 2);
+                }
+            }
+
+            ImageShape left
+            {
+                init()
+                {
+                    // Always visible, the rest of the figures are on top.
+                    is_visible = false;
+
+                    image = stimuli_dir() + "images/three_button_beexy_box_top_left_pressed.svg";
+
+                    // Center image
+                    offset_x = -(image_width / 2);
+                    offset_y = -(image_height / 2);
+                }
+
+                on_event:start()
+                {
+                    control.button_box.output_led(1);
+                }
+
+                on_event:finish()
+                {
+                    control.button_box.output_led(0);
+                }
+            }
+
+            ImageShape right
+            {
+                init()
+                {
+                    // Always visible, the rest of the figures are on top.
+                    is_visible = false;
+
+                    image = stimuli_dir() + "images/three_button_beexy_box_top_right_pressed.svg";
+
+                    // Center image
+                    offset_x = -(image_width / 2);
+                    offset_y = -(image_height / 2);
+                }
+
+                on_event:start()
+                {
+                    control.button_box.output_led(4);
+                }
+
+                on_event:finish()
+                {
+                    control.button_box.output_led(0);
+                }
+            }
+
+            ImageShape middle
+            {
+                init()
+                {
+                    is_visible = false;
+
+                    image = stimuli_dir() + "images/three_button_beexy_box_bottom_pressed.svg";
+
+                    // Center image
+                    offset_x = -(image_width / 2);
+                    offset_y = -(image_height / 2);
+                }
+
+                on_event:start()
+                {
+                    control.button_box.output_led(2);
+                }
+
+                on_event:finish()
+                {
+                    control.button_box.output_led(0);
                 }
             }
         }
 
-        time start_fixation(time t)
-        {
-            // Start fixation cross.
-            canvas.fixation.start(t, FIXATION_DURATION);
-
-            // Return fixation offset time.
-            return canvas.fixation.expected_finish_time;
-        }
-
-
         void reset()
         {
             full_abort();
+            control.button_box.output_led(0);
         }
+
     }
 
 
-    SoundChain stimulus
+    SoundChain stimulus1
     {
         // Sound source/producer object.
         SoundSequence seq
         {
-            SoundFile clip1_1 {}
-            SoundFile clip2_1 {}
-            SoundFile clip3_1 {}
-
-            SoundFile clip1_2 {}
-            SoundFile clip2_2 {}
-            SoundFile clip3_2 {}
+            SoundFile clip1 {}
+            SoundFile clip2 {}
+            SoundFile clip3 {}
         }
 
 
         // Sound sink/consumer object.
         SoundPlayback playback {}
 
+        on_event:start()
+        {
+            layout.button_box_representation.left.start(now());
+        }
+
+        on_event:finish()
+        {
+            layout.button_box_representation.left.stop(now());
+            stimulus2.play(event_time+INTRATRIPLET_INTERVAL);
+        }
 
         time play(time t)
         {
             abort();
+            stimulus2.abort();
 
             playback.device = sound_output_device;
-            seq.clip1_1.file = stimuli_dir() + "sounds/" + item.sndfn1_1;
-            seq.clip2_1.file = stimuli_dir() + "sounds/" + item.sndfn2_1;
-            seq.clip3_1.file = stimuli_dir() + "sounds/" + item.sndfn3_1;
-
-            seq.clip1_2.file = stimuli_dir() + "sounds/" + item.sndfn1_2;
-            seq.clip2_2.file = stimuli_dir() + "sounds/" + item.sndfn2_2;
-            seq.clip3_2.file = stimuli_dir() + "sounds/" + item.sndfn3_2;
+            seq.clip1.file = stimuli_dir() + "sounds/" + item.sndfn1_1;
+            seq.clip2.file = stimuli_dir() + "sounds/" + item.sndfn2_1;
+            seq.clip3.file = stimuli_dir() + "sounds/" + item.sndfn3_1;
 
             // set time WITHIN triplets
-            seq.clip1_1.trailer_duration = INTERTRIPLET_INTERVAL;
-            seq.clip1_2.trailer_duration = INTERTRIPLET_INTERVAL;
+            seq.clip1.trailer_duration = INTERTRIPLET_INTERVAL;
+            seq.clip2.trailer_duration = INTERTRIPLET_INTERVAL;
 
-            seq.clip2_1.trailer_duration = INTERTRIPLET_INTERVAL;
-            seq.clip2_2.trailer_duration = INTERTRIPLET_INTERVAL;
+            start(t);
 
-            // set time BETWEEN triplets
-            seq.clip3_1.trailer_duration = INTRATRIPLET_INTERVAL;
+            return expected_finish_time;
+        }
+    }
+
+    SoundChain stimulus2
+    {
+        // Sound source/producer object.
+        SoundSequence seq
+        {
+            SoundFile clip1 {}
+            SoundFile clip2 {}
+            SoundFile clip3 {}
+        }
+
+        // Sound sink/consumer object.
+        SoundPlayback playback {}
+
+        on_event:start()
+        {
+            layout.button_box_representation.right.start(now());
+        }
+
+        on_event:finish()
+        {
+            layout.button_box_representation.right.stop(now());
+
+            // Response interval starts at stimulus offset.
+            response.start(event_time, RESPONSE_DURATION);
+        }
+
+        time play(time t)
+        {
+            abort();
+            stimulus1.abort();
+
+            playback.device = sound_output_device;
+            seq.clip1.file = stimuli_dir() + "sounds/" + item.sndfn1_2;
+            seq.clip2.file = stimuli_dir() + "sounds/" + item.sndfn2_2;
+            seq.clip3.file = stimuli_dir() + "sounds/" + item.sndfn3_2;
+
+            // set time WITHIN triplets
+            seq.clip1.trailer_duration = INTERTRIPLET_INTERVAL;
+            seq.clip2.trailer_duration = INTERTRIPLET_INTERVAL;
 
             start(t);
 
@@ -179,7 +292,17 @@ Page test_page
 
                 ignore_remaining_hits();
 
-                stop();
+                if(val == 1 )
+                {
+                    layout.button_box_representation.left.start(t, FEEDBACK_DURATION);
+                    stop(layout.button_box_representation.left.expected_finish_time);
+                }
+                else
+                {
+                    layout.button_box_representation.right.start(t, FEEDBACK_DURATION);
+                    stop(layout.button_box_representation.right.expected_finish_time);
+                }
+
             }
             else if (validity == HIT_TOO_EARLY || validity == HIT_TOO_LATE)
             {
@@ -212,7 +335,8 @@ Page test_page
     {
         // Just in case; abort presentation if still active.
         layout.reset();
-        stimulus.abort();
+        stimulus1.abort();
+        stimulus2.abort();
 
         signal_target(msgid);   // tell caller we're done
         target = null;
@@ -274,17 +398,8 @@ Page test_page
         response.clear();
 
 
-        // Start fixation symbol.
-        time fixoffset = layout.start_fixation(tref);
-
-
         // Start stimulus at fixation offset.
-        time stimoffset = stimulus.play(fixoffset);
-
-
-        // Response interval starts at stimulus offset.
-        response.start(stimoffset, RESPONSE_DURATION);
-
+        time stim1offset = stimulus1.play(tref);
 
         // Update progress counter (if enabled).
         test_page_overlay.update_progress_bar(count);

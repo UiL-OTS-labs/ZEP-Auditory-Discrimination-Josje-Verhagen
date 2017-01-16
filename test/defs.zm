@@ -28,7 +28,7 @@ const dur       INTRATRIPLET_INTERVAL           = 750ms;
 const dur       FIXATION_DURATION               = 1000ms;
 
 // Duration of the feedback presentation.
-const dur       FEEDBACK_DURATION               = 1000ms;
+const dur       FEEDBACK_DURATION               = 200ms;
 
 // Duration of the response interval. A value of 0ms means there is no
 // timeout.
