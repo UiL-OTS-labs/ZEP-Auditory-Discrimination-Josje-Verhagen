@@ -54,7 +54,7 @@ Experiment experiment
 
         if(check_participant_fields() != OK)
 		{
-			println("Missing counterbalance order participant setting!");
+			println("Missing Presentation_order_one_two participant field!");
 			terminate;
 		}
 
