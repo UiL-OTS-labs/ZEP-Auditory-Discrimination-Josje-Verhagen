@@ -292,16 +292,7 @@ Page test_page
 
                 ignore_remaining_hits();
 
-                if(val == 1 )
-                {
-                    layout.button_box_representation.left.start(t, FEEDBACK_DURATION);
-                    stop(layout.button_box_representation.left.expected_finish_time);
-                }
-                else
-                {
-                    layout.button_box_representation.right.start(t, FEEDBACK_DURATION);
-                    stop(layout.button_box_representation.right.expected_finish_time);
-                }
+                stop();
 
             }
             else if (validity == HIT_TOO_EARLY || validity == HIT_TOO_LATE)
